@@ -22,13 +22,13 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/coelckers/gzdoom/archive/g3.1.0.tar.gz",
-					"sha256": "c011ce9a95b765da5b81cf723062379d585c57cb586848385a2319deba1996c3"
+					"url": "https://github.com/coelckers/gzdoom/archive/g3.2.5.tar.gz",
+					"sha256": "e9cf0aa5b7ee0b165532dee55e4965f6aabf1acadb79f7372f8e362540206748"
 				}
 			]
 		},
 		{
-			"name": "freedoom1",
+			"name": "freedoom2",
 			"buildsystem": "simple",
 			"sources": [
 				{
