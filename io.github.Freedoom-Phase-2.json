@@ -48,8 +48,11 @@
 				},
 				{
 					"type": "file",
-					"url": "https://raw.githubusercontent.com/freedoom/freedoom/9c6c68127672feee501d5e5cab9d5e15c3dbf8b3/sprites/heada1.png",
-					"sha256": "49665ff13e242a1cde864acf314dc16f3623786876d390c2f4495b6685a30a3a"
+					"path": "heada1-64x64.png"
+				},
+				{
+					"type": "file",
+					"path": "heada1-128x128.png"
 				}
 			],
 			"build-commands": [
@@ -57,8 +60,8 @@
 				"sed -i 's/Exec=freedoom2/Exec=gzdoom/g' freedoom2.desktop",
 				"install -Dm 644 freedoom2.desktop -t /app/share/applications",
 				"install -Dm 644 freedoom2.appdata.xml -t /app/share/appdata",
-				"mv heada1.png freedoom2.png",
-				"install -Dm 644 freedoom2.png -t /app/share/icons/hicolor/64x64/apps"
+				"mv heada1-64x64.png freedoom2.png && install -Dm 644 freedoom2.png -t /app/share/icons/hicolor/64x64/apps",
+				"mv heada1-128x128.png freedoom2.png && install -Dm 644 freedoom2.png -t /app/share/icons/hicolor/128x128/apps"
 			]
 		}
 	]
