@@ -3,7 +3,7 @@
 	"runtime": "org.freedesktop.Platform",
 	"sdk": "org.freedesktop.Sdk",
 	"runtime-version": "1.6",
-	"command": "gzdoom",
+	"command": "gzdoom.sh",
 	"rename-desktop-file": "freedoom2.desktop",
 	"rename-appdata-file": "freedoom2.appdata.xml",
 	"rename-icon": "freedoom2",
@@ -17,6 +17,20 @@
 	],
 	"modules": [
 		{
+			"name": "fluidsynth",
+			"buildsystem": "cmake",
+			"config-opts": [
+				"-DLIB_SUFFIX="
+			],
+			"sources": [
+				{
+					"type": "archive",
+					"url": "https://github.com/FluidSynth/fluidsynth/archive/v1.1.9.tar.gz",
+					"sha256": "dd6321e13a7c875ef3032644bd3197e84b3d24928e2379bc8066b7cace7bd410"
+				}
+			]
+		},
+		{
 			"name": "gzdoom",
 			"buildsystem": "cmake",
 			"sources": [
@@ -24,6 +38,24 @@
 					"type": "archive",
 					"url": "https://github.com/coelckers/gzdoom/archive/g3.2.5.tar.gz",
 					"sha256": "e9cf0aa5b7ee0b165532dee55e4965f6aabf1acadb79f7372f8e362540206748"
+				},
+				{
+					"type": "file",
+					"url": "https://github.com/coelckers/gzdoom/raw/g3.2.5/soundfont/gzdoom.sf2",
+					"sha256": "fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869"
+				},
+				{
+					"type": "shell",
+					"commands": ["install -Dm 644 gzdoom.sf2 /app/share/sounds/sf2/gzdoom.sf2"]
+				},
+				{
+					"type": "script",
+					"commands": ["gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 \"$@\""],
+					"dest-filename": "gzdoom.sh"
+				},
+				{
+					"type": "shell",
+					"commands": ["chmod +x gzdoom.sh && install -D gzdoom.sh /app/bin/gzdoom.sh"]
 				}
 			]
 		},
@@ -57,7 +89,7 @@
 			],
 			"build-commands": [
 				"install -Dm 644 freedoom2.wad /app/share/games/doom",
-				"sed -i 's/Exec=freedoom2/Exec=gzdoom/g' freedoom2.desktop",
+				"sed -i 's|Exec=freedoom2|Exec=gzdoom.sh|g' freedoom2.desktop",
 				"install -Dm 644 freedoom2.desktop -t /app/share/applications",
 				"install -Dm 644 freedoom2.appdata.xml -t /app/share/appdata",
 				"mv heada1-64x64.png freedoom2.png && install -Dm 644 freedoom2.png -t /app/share/icons/hicolor/64x64/apps",
