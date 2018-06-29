@@ -33,8 +33,8 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/FluidSynth/fluidsynth/archive/v1.1.9.tar.gz",
-					"sha256": "dd6321e13a7c875ef3032644bd3197e84b3d24928e2379bc8066b7cace7bd410"
+					"url": "https://github.com/FluidSynth/fluidsynth/archive/v1.1.11.tar.gz",
+					"sha256": "da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8"
 				}
 			]
 		},
@@ -47,12 +47,12 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/coelckers/gzdoom/archive/g3.2.5.tar.gz",
-					"sha256": "e9cf0aa5b7ee0b165532dee55e4965f6aabf1acadb79f7372f8e362540206748"
+					"url": "https://github.com/coelckers/gzdoom/archive/g3.4.1.tar.gz",
+					"sha256": "295a006417a13c1996c89d9ebf87457788371a9e2576dbcffc04a55576e300f7"
 				},
 				{
 					"type": "file",
-					"url": "https://github.com/coelckers/gzdoom/raw/g3.2.5/soundfont/gzdoom.sf2",
+					"url": "https://github.com/coelckers/gzdoom/raw/g3.4.1/soundfont/gzdoom.sf2",
 					"sha256": "fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869"
 				},
 				{
