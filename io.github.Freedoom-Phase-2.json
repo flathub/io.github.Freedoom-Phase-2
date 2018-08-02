@@ -47,12 +47,12 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/coelckers/gzdoom/archive/g3.4.1.tar.gz",
-					"sha256": "295a006417a13c1996c89d9ebf87457788371a9e2576dbcffc04a55576e300f7"
+					"url": "https://github.com/coelckers/gzdoom/archive/g3.5.0.tar.gz",
+					"sha256": "65e3269bdcfde15dff6c04bb82638d42cd77deff3aa13ccdb7d9967b88d05a33"
 				},
 				{
 					"type": "file",
-					"url": "https://github.com/coelckers/gzdoom/raw/g3.4.1/soundfont/gzdoom.sf2",
+					"url": "https://github.com/coelckers/gzdoom/raw/g3.5.0/soundfont/gzdoom.sf2",
 					"sha256": "fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869"
 				},
 				{
