@@ -9,6 +9,7 @@ rename-icon: freedoom2
 finish-args:
 - --device=dri
 - --socket=wayland
+- --socket=fallback-x11
 - --socket=x11
 - --share=ipc
 - --socket=pulseaudio
@@ -20,15 +21,34 @@ cleanup:
 - /app/lib/*.la
 - /app/lib/pkgconfig
 modules:
+- name: ncurses
+  no-autogen: true
+  config-opts:
+  - --prefix=/app
+  make-install-args:
+  - install.libs
+  cleanup:
+  - /bin
+  - /include
+  - /share/man
+  - "/lib/*.a"
+  - "/lib/*.la"
+  sources:
+  - type: archive
+    url: http://ftp.gnu.org/gnu/ncurses/ncurses-6.1.tar.gz
+    sha256: aa057eeeb4a14d470101eff4597d5833dcef5965331be3528c08d99cebaa0d17
+
 - name: fluidsynth
   buildsystem: cmake-ninja
   config-opts:
   - -DCMAKE_BUILD_TYPE=RelWithDebInfo
   - -DLIB_SUFFIX=
+  - -DCMAKE_EXE_LINKER_FLAGS=-lncurses # https://lists.nongnu.org/archive/html/fluid-dev/2010-10/msg00057.html
+  - -DCMAKE_SHARED_LINKER_FLAGS=-lncurses
   sources:
   - type: archive
-    url: https://github.com/FluidSynth/fluidsynth/archive/v1.1.9.tar.gz
-    sha256: dd6321e13a7c875ef3032644bd3197e84b3d24928e2379bc8066b7cace7bd410
+    url: https://github.com/FluidSynth/fluidsynth/archive/v1.1.11.tar.gz
+    sha256: da8878ff374d12392eecf87e96bad8711b8e76a154c25a571dd8614d1af80de8
 
 - name: gzdoom
   buildsystem: cmake-ninja
@@ -37,10 +57,10 @@ modules:
   - -DSEND_ANON_STATS=OFF
   sources:
   - type: archive
-    url: https://github.com/coelckers/gzdoom/archive/g3.5.0.tar.gz
-    sha256: 65e3269bdcfde15dff6c04bb82638d42cd77deff3aa13ccdb7d9967b88d05a33
+    url: https://github.com/coelckers/gzdoom/archive/g3.5.1.tar.gz
+    sha256: 6189ac5328a835b28246c0a7a7449f8cb7f71a4f2c9868ff5315a2f598849096
   - type: file
-    url: https://github.com/coelckers/gzdoom/raw/g3.5.0/soundfont/gzdoom.sf2
+    url: https://github.com/coelckers/gzdoom/raw/g3.5.1/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
   - type: shell
     commands:
