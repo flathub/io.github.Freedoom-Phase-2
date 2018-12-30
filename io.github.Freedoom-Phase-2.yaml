@@ -57,10 +57,10 @@ modules:
   - -DSEND_ANON_STATS=OFF
   sources:
   - type: archive
-    url: https://github.com/coelckers/gzdoom/archive/g3.5.1.tar.gz
-    sha256: 6189ac5328a835b28246c0a7a7449f8cb7f71a4f2c9868ff5315a2f598849096
+    url: https://github.com/coelckers/gzdoom/archive/g3.7.0.tar.gz
+    sha256: d7465f42f692ebad1aec14aab7d72e1c3f0f0d5004ceebc191ce31181d6d850a
   - type: file
-    url: https://github.com/coelckers/gzdoom/raw/g3.5.1/soundfont/gzdoom.sf2
+    url: https://github.com/coelckers/gzdoom/raw/g3.7.0/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
   - type: shell
     commands:
