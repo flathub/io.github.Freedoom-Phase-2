@@ -57,18 +57,19 @@ modules:
   - -DSEND_ANON_STATS=OFF
   - -DCMAKE_CXX_FLAGS="-msse3" # Required when targeting 32-bit x86
   sources:
-  - type: archive
-    url: https://github.com/coelckers/gzdoom/archive/g4.2.0.tar.gz
-    sha256: 9d781e868f32ad53aa262691f76cab09b12661ababd2b7f5735fe852ab74d566
+  - type: git
+    url: https://github.com/coelckers/gzdoom.git
+    tag: g4.2.1
+    commit: f586196f28ae099255ea15e9e69ac19b218f5cdf
   - type: file
-    url: https://github.com/coelckers/gzdoom/raw/g4.2.0/soundfont/gzdoom.sf2
+    url: https://github.com/coelckers/gzdoom/raw/g4.2.1/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
   - type: shell
     commands:
     - install -Dm 644 gzdoom.sf2 /app/share/sounds/sf2/gzdoom.sf2
   - type: script
     commands:
-    - gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 $@
+    - gzdoom +fluid_patchset /app/share/sounds/sf2/gzdoom.sf2 -file lights.pk3 brightmaps.pk3 "$@"
     dest-filename: gzdoom.sh
   post-install:
   - install -D gzdoom.sh /app/bin/gzdoom.sh
