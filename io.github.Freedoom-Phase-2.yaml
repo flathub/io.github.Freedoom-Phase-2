@@ -1,7 +1,7 @@
 app-id: io.github.Freedoom-Phase-2
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: "18.08"
+runtime-version: "19.08"
 command: gzdoom.sh
 rename-desktop-file: freedoom2.desktop
 rename-appdata-file: freedoom2.appdata.xml
@@ -54,13 +54,14 @@ modules:
   buildsystem: cmake-ninja
   config-opts:
   - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-  - -DSEND_ANON_STATS=OFF
-  - -DCMAKE_CXX_FLAGS="-msse3" # Required when targeting 32-bit x86
+  # Required when targeting 32-bit x86
+  # Required for 19.08 using GCC C++ 9.2
+  - -DCMAKE_CXX_FLAGS=-msse3 -lrt
   sources:
   - type: git
     url: https://github.com/coelckers/gzdoom.git
-    tag: g4.2.1
-    commit: f586196f28ae099255ea15e9e69ac19b218f5cdf
+    tag: g4.2.3
+    commit: d5ff2746be69636ed17c197877407ee2ad12b8f7
   - type: file
     url: https://github.com/coelckers/gzdoom/raw/g4.2.1/soundfont/gzdoom.sf2
     sha256: fca3e514b635a21789d4224e84865d2954a2a914d46b64aa8219ddb565c44869
