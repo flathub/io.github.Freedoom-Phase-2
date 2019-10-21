@@ -79,13 +79,13 @@ modules:
   buildsystem: simple
   sources:
   - type: archive
-    url: https://github.com/freedoom/freedoom/releases/download/v0.11.3/freedoom-0.11.3.zip
-    sha256: 28a5eafbb1285b78937bd408fcdd8f25f915432340eee79da692eae83bce5e8a
+    url: https://github.com/freedoom/freedoom/releases/download/v0.12.0/freedoom-0.12.0.zip
+    sha256: 5722aa8c157ca49e445a30dd22837d53c32754956715ef6febf385489a816fde
   - type: file
-    url: https://raw.githubusercontent.com/freedoom/freedoom/v0.11.3/dist/freedoom2.desktop
+    url: https://raw.githubusercontent.com/freedoom/freedoom/v0.12.0/dist/freedoom2.desktop
     sha256: e6ac94bcbd6bbd0458c8bdae1286664042b4843e9cf558b9918eb85ff28d4626
   - type: file
-    url: https://raw.githubusercontent.com/freedoom/freedoom/v0.11.3/dist/freedoom2.appdata.xml
+    url: https://raw.githubusercontent.com/freedoom/freedoom/v0.12.0/dist/freedoom2.appdata.xml
     sha256: 3802e4a169bb9c1dd7c481e0e62b92f5f7bbfac1778316a5615f0c9353e6e953
   - type: file
     path: heada1-48x48.png
@@ -99,7 +99,7 @@ modules:
   - install -Dm 644 freedoom2.desktop -t /app/share/applications
   - install -Dm 644 freedoom2.appdata.xml -t /app/share/appdata
   - sed -e 's|</description>|<p>This package uses the GZDoom source port.</p></description>|' -i /app/share/appdata/freedoom2.appdata.xml
-  - sed -e 's|</component>|<releases><release version="0.11.3" date="2017-07-18"></release></releases></component>|' -i /app/share/appdata/freedoom2.appdata.xml
+  - sed -e 's|</component>|<releases><release version="0.12.0" date="2017-07-18"></release></releases></component>|' -i /app/share/appdata/freedoom2.appdata.xml
   - sed -e 's|</component>|<content_rating type="oars-1.1"><content_attribute id="violence-bloodshed">intense</content_attribute></content_rating></component>|' -i /app/share/appdata/freedoom2.appdata.xml
   - install -Dm 644 heada1-48x48.png /app/share/icons/hicolor/48x48/apps/freedoom2.png
   - install -Dm 644 heada1-64x64.png /app/share/icons/hicolor/64x64/apps/freedoom2.png
